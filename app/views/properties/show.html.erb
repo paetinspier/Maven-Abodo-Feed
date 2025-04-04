@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="text-[#1A0935] w-full min-h-screen flex flex-col justify-start items-center">
+  <div class="bg-[#1A0935] h-12 w-full text-white flex flex-row justify-between items-center px-24 py-12">
+    <img src="https://www.hiremaven.ai/wp-content/uploads/2025/02/logo-maven-ai.svg" alt="logo" class="w-32"/>
+    <div>
+      <%= link_to "Back to properties", properties_path %>
+    </div>
+  </div>
+
+  <div class="w-full flex flex-col justify-center items-start gap-6">
+    <div class="text-5xl font-medium text-left w-full px-8 pt-12">Property</div>
+    <div class="w-full px-8 flex justify-center items-center">
+      <div class="w-full h-[1px] bg-[#1A0935] mt-4 mb-2"></div>
+    </div>
+    <div id="properties" class="w-full flex flex-col justify-start items-start gap-4 mt-4 px-8">
+      <%= render @property %>
+  
+      <div class="flex flex-col justify-start items-start gap-4">
+        <%= link_to "Edit this property", edit_property_path(@property), class: "px-4 py-2 text-white bg-[#1A0935] rounded-full" %>
+  
+        <%= button_to "Destroy this property", @property, method: :delete, class: "px-4 py-2 text-white bg-[#1A0935] rounded-full"%>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+<div class="w-full px-24 py-12 bg-[#1A0935] text-white/75 flex flex-col justify-start items-start">
+    <img src="https://www.hiremaven.ai/wp-content/uploads/2025/02/logo-maven-ai.svg" alt="logo" class="w-40"/>
+    <div class="w-full h-[1px] bg-white/20 mt-4 mb-2"></div>
+    <p>©2025 MavenAI. All rights reserved.</p>
+</div>
