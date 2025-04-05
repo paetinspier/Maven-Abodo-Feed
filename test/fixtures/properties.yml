@@ -1,13 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  property_id: MyString
-  name: MyString
-  email: MyString
-  unit_bedrooms: 1.5
+  property_id: property_id_1
+  name: Test Property 1
+  email: test1@example.com
+  unit_bedrooms: 2.5
 
 two:
-  property_id: MyString
-  name: MyString
-  email: MyString
-  unit_bedrooms: 1.5
+  property_id: property_id_2
+  name: Test Property 2
+  email: test2@example.com
+  unit_bedrooms: 3.0
+
+madison_property:
+  property_id: madison_wi_property
+  name: Madison Apartments
+  email: madison@example.com
+  unit_bedrooms: 10.0

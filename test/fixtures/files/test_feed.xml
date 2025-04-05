@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Properties>
+  <Property>
+    <PropertyID>
+      <Identification IDValue="madison_test_1" />
+      <MarketingName>Madison Test Property</MarketingName>
+      <Email>madison_test@example.com</Email>
+      <Address>
+        <City>Madison</City>
+        <State>WI</State>
+      </Address>
+    </PropertyID>
+    <ILS_Unit>
+      <Units>
+        <Unit>
+          <UnitBedrooms>6.0</UnitBedrooms>
+        </Unit>
+      </Units>
+    </ILS_Unit>
+  </Property>
+  <Property>
+    <PropertyID>
+      <Identification IDValue="chicago_test_1" />
+      <MarketingName>Chicago Test Property</MarketingName>
+      <Email>chicago_test@example.com</Email>
+      <Address>
+        <City>Chicago</City>
+        <State>IL</State>
+      </Address>
+    </PropertyID>
+    <ILS_Unit>
+      <Units>
+        <Unit>
+          <UnitBedrooms>3.0</UnitBedrooms>
+        </Unit>
+      </Units>
+    </ILS_Unit>
+  </Property>
+</Properties>

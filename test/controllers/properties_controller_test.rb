@@ -17,7 +17,12 @@ class PropertiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create property" do
     assert_difference("Property.count") do
-      post properties_url, params: { property: { email: @property.email, name: @property.name, property_id: @property.property_id, unit_bedrooms: @property.unit_bedrooms } }
+      post properties_url, params: { property: { 
+        email: "new_test@example.com", 
+        name: "New Test Property", 
+        property_id: "unique_test_id_#{Time.now.to_i}", 
+        unit_bedrooms: 5.0 
+      } }
     end
 
     assert_redirected_to property_url(Property.last)
