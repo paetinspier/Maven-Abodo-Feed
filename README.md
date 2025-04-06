@@ -32,8 +32,8 @@ A Rails application that imports and displays property data from an XML feed. Th
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/paetinspier/Maven-Adobo-Feed.git
-   cd Maven-Adobo-Feed
+   git clone https://github.com/paetinspier/Maven-Abodo-Feed.git
+   cd Maven-Abodo-Feed
    ```
 
 2. Create a `.env` file in the project root with the following content:
