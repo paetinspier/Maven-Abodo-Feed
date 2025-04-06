@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  before_action :set_property, only: %i[ show edit update destroy ]
+  before_action :set_property, only: %i[show edit update destroy]
 
   # GET /properties or /properties.json
   def index
@@ -12,7 +12,10 @@ class PropertiesController < ApplicationController
 
   # GET /properties/new
   def new
-    @property = Property.new
+    ImportPropertiesJob.perform_later
+    redirect_to properties_path, notice: 'Import started!'
+
+    # @property = Property.new
   end
 
   # GET /properties/1/edit
@@ -38,7 +41,7 @@ class PropertiesController < ApplicationController
   def update
     respond_to do |format|
       if @property.update(property_params)
-        format.html { redirect_to @property, notice: "Property was successfully updated." }
+        format.html { redirect_to @property, notice: 'Property was successfully updated.' }
         format.json { render :show, status: :ok, location: @property }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +55,20 @@ class PropertiesController < ApplicationController
     @property.destroy!
 
     respond_to do |format|
-      format.html { redirect_to properties_path, status: :see_other, notice: "Property was successfully destroyed." }
+      format.html { redirect_to properties_path, status: :see_other, notice: 'Property was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_property
-      @property = Property.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def property_params
-      params.require(:property).permit(:property_id, :name, :email, :unit_bedrooms)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_property
+    @property = Property.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def property_params
+    params.require(:property).permit(:property_id, :name, :email, :unit_bedrooms)
+  end
 end

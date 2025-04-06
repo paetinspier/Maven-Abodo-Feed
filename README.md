@@ -15,16 +15,16 @@ A Rails application that imports and displays property data from an XML feed. Th
 - Ruby version: 3.2.2
 - Rails version: 7.1.5
 - Database: PostgreSQL 14
-- Docker: 28.0.4
-- Docker Compose: 1.29.2
+- Docker
+- Docker Compose
 - Nokogiri for XML parsing
 
 ## Getting Started
 
 ### Prerequisites
 
-- Docker
-- Docker Compose
+- [Docker](https://docs.docker.com/engine/install/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Setup Instructions
 
@@ -32,7 +32,7 @@ A Rails application that imports and displays property data from an XML feed. Th
 
    ```bash
    git clone https://github.com/paetinspier/Maven-Adobo-Feed.git
-   cd adobo_feed
+   cd Maven-Adobo-Feed
    ```
 
 2. Create a `.env` file in the project root with the following content:
@@ -93,9 +93,6 @@ docker-compose exec web rails db:migrate
 ```bash
 # Run all tests
 docker-compose exec web rails test
-
-# Run system tests
-docker-compose exec web rails test:system
 ```
 
 ### Important Rake Tasks
