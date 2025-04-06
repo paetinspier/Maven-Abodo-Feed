@@ -96,6 +96,8 @@ docker-compose exec web rails db:migrate
 docker-compose exec web rails test
 ```
 
+Test files, including those for the XML import logic (located in test/services/property_importer_test.rb), ensure that the property import service behaves correctly under various scenarios.
+
 ### Important Rake Tasks
 
 ```bash
@@ -108,14 +110,14 @@ docker-compose exec web rails db:reset property:import
 
 ## Data Import Process
 
-The application imports property data from an XML file located at `db/data/sample_abodo_feed.xml`. The import process:
+The application imports property data from an XML file located at db/data/sample_abodo_feed.xml using a dedicated service file. The import process:
 
-1. Parses the XML using Nokogiri
-2. Filters properties by location (Madison, WI)
-3. Calculates the total number of bedrooms for each property
-4. Creates or updates property records in the database
+1. Parses the XML using Nokogiri.
+2. Filters properties by location (Madison, WI).
+3. Calculates the total number of bedrooms for each property.
+4. Creates or updates property records in the database.
 
-The import process runs automatically when the Docker container starts through the entrypoint script.
+The import logic is encapsulated in the service file app/services/property_importer.rb, which is called by both the Rake task and the background job.
 
 To manually trigger the import rake:
 
@@ -125,4 +127,4 @@ docker-compose exec web rails property:import
 
 ## Additional Information
 
-This application was developed as part of Maven AI's assessment process. It demonstrates skills in Rails development, data processing, and Docker containerization.
+This application was developed as part of Maven AI's assessment process. It demonstrates skills in Rails development, data processing, Docker containerization, Tailwind CSS integration, and test-driven development.
