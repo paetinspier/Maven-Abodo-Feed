@@ -17,6 +17,7 @@ A Rails application that imports and displays property data from an XML feed. Th
 - Database: PostgreSQL 14
 - Docker
 - Docker Compose
+- Tailwind CSS for styling (via CDN)
 - Nokogiri for XML parsing
 
 ## Getting Started

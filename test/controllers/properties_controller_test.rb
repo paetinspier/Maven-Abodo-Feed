@@ -12,7 +12,7 @@ class PropertiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get new" do
     get new_property_url
-    assert_response :success
+    assert_redirected_to properties_path
   end
 
   test "should create property" do
