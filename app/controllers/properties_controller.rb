@@ -1,6 +1,21 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[show edit update destroy]
 
+  # static photo lists
+  INTERIOR_PHOTOS = [
+    "https://images.rentable.co/125174/72525196/large.jpeg",
+    "https://images.rentable.co/125174/72526105/large.jpeg",
+    "https://images.rentable.co/102207/82056855/large.jpeg",
+    "https://images.rentable.co/125174/72527744/large.jpeg"
+  ].freeze
+
+  EXTERIOR_PHOTOS = [
+    "https://images.rentable.co/125174/72525707/large.jpeg",
+    "https://images.rentable.co/102207/82630648/large.jpeg",
+    "https://images.rentable.co/102207/77019634/large.jpeg",
+    "https://images.rentable.co/102207/88573201/large.jpeg"
+  ].freeze
+
   # GET /properties or /properties.json
   def index
     @properties = Property.all
@@ -8,6 +23,13 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1 or /properties/1.json
   def show
+    @property = Property.find(params[:id])
+
+    # default to "interior" if param is missing or invalid
+    view = params[:images].to_s.downcase
+    view = %w[interior exterior].include?(view) ? view : "interior"
+
+    @images = (view == "exterior" ? EXTERIOR_PHOTOS : INTERIOR_PHOTOS)
   end
 
   # GET /properties/new

@@ -57,12 +57,19 @@ class PropertyImporter
                                .map { |node| node.text.to_f }
                                .sum
 
+      description = ""
+      ai_description = AiDescriptionGenerator.new(name, city, state, total_bedrooms).call
+      if ai_description != nil
+        description = ai_description
+      end
+
       begin
         prop = Property.find_or_initialize_by(property_id: property_id)
         prop.update!(
           name: name,
           email: email,
-          unit_bedrooms: total_bedrooms
+          unit_bedrooms: total_bedrooms,
+          description: description
         )
         logger.info("Imported property: #{name} (#{property_id})")
         imported += 1
